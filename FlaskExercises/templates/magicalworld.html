@@ -1,0 +1,30 @@
+{% extends "main.html"%}
+{% block container%}
+
+<h1>{{ title }}</h1>
+
+      <p>{{ text }}</p>
+
+      {% if choices %}
+
+      <p>What do you do?</p>
+
+      <ul>
+        {% for (page_name, choice) in choices %}
+        <li>
+          <a href="{{url_for(page_name)}}">{{choice}}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      <img style="max-width: 50%; height: auto;" src="{{ url_for('static', filename='unicorn.png')}}" class="unicornpic">
+
+      {% else %}
+
+      <p>THE END.</p>
+
+      <p><a href="{{url_for('ourworld')}}">Play again</a></p>
+      {% endif %}
+
+{% endblock %}
+
+

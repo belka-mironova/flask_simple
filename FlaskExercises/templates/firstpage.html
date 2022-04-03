@@ -1,0 +1,11 @@
+{% extends "main.html"%}
+{% block container%}
+<h1>Dictionary</h1>
+
+<ul>
+    {%for l in alphabet%}
+      <li><a href = "{{ url_for ('tryletters', letters = l)}}">{{l}}</a></li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}
