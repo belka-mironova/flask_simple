@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Categories</h1>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Category Name</th>
+              <th>Description</th>
+              <th>Category Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for category in categories %}
+            <tr>
+              <td><a href = "{{url_for('cat_products', category_id = category['Id'])}}">{{category['CategoryName']}}</a></td>
+              <td>{{category['Description']}}</td>
+              <td>{{category['CategoryCount']}}</td>
+            </tr>
+            {% endfor%}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>
