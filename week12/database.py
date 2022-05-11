@@ -23,4 +23,13 @@ def query(query_text):
 def get_all_facts():
     return query("""SELECT * FROM Supplier""")
 
-    
+def get_supplier_products(supplier_id):
+    return query("""
+                SELECT * FROM Product
+                WHERE SupplierId = %d""" %supplier_id)  
+
+
+def get_supplier_name(supplier_id):
+    return query("""
+                SELECT CompanyName FROM Supplier
+                WHERE Id = %d""" %supplier_id)      
